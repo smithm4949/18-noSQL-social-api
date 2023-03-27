@@ -46,7 +46,7 @@ module.exports = {
       });
   },
   update(req, res) {
-    Thought.findByIdAndUpdate(req.params.id, req.body)
+    Thought.findByIdAndUpdate(req.params.id, req.body, {new: true})
       .then(thought => {
         thought ? res.json(thought) : res.status(404).json({message: 'thought not found'})
       })
@@ -54,5 +54,33 @@ module.exports = {
         console.log(err);
         return res.status(500).json(err);
       });
+  },
+  addReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.id },
+      { $addToSet: { reactions: req.body } },
+      { runValidators: true, new: true }
+    )
+    .then(thought => {
+      thought ? res.json(thought) : res.status(404).json({message: 'thought not found'})
+    })
+    .catch(err => {
+      console.log(err);
+      return res.status(500).json(err);
+    });
+  },
+  deleteReaction(req, res) {
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $pull: { reactions: { reactionId: req.params.reactionId} } },
+      { runValidators: true, new: true }
+    )
+    .then(thought => {
+      thought ? res.json(thought) : res.status(404).json({message: 'thought not found'})
+    })
+    .catch(err => {
+      console.log(err);
+      return res.status(500).json(err);
+    });
   }
 }

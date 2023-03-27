@@ -37,7 +37,7 @@ module.exports = {
       });
   },
   update(req, res) {
-    User.findByIdAndUpdate(req.params.id, req.body)
+    User.findByIdAndUpdate(req.params.id, req.body, {new: true})
       .then(user => {
         user ? res.json(user) : res.status(404).json({message: 'user not found'})
       })
