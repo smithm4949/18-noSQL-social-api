@@ -30,9 +30,7 @@ module.exports = {
     User.findByIdAndDelete(req.params.id)
       .then(user => {
         if (user) {
-          Thought.deleteMany({
-            username: user.username
-          })
+          Thought.deleteMany({ "username": user.username });
           res.json(user);
         } else {
           res.status(404).json({message: 'user not found'})
