@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "Social Networking API for homework",
   "main": "index.js",
+  "author": "Myles Smith",
+  "license": "ISC",
   "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "seed": "node utils/seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Myles Smith",
-  "license": "ISC"
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "6.9.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
 }
