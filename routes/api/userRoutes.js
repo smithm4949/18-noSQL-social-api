@@ -1,7 +1,11 @@
 const router = require('express').Router();
+const { 
+  getUsers,
+  getUser
+} = require('../../controllers/userController');
 
-router.route('/').get((req, res) => {
-  res.status(200).json({data: 'Route working in userRoutes!'})
-})
+router.route('/').get(getUsers);
+
+router.route('/:id').get(getUser);
 
 module.exports = router;
