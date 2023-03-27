@@ -29,7 +29,14 @@ module.exports = {
   deleteUser(req, res) {
     User.findByIdAndDelete(req.params.id)
       .then(user => {
-        user ? res.json(user) : res.status(404).json({message: 'user not found'})
+        if (user) {
+          Thought.deleteMany({
+            username: user.username
+          })
+          res.json(user);
+        } else {
+          res.status(404).json({message: 'user not found'})
+        }
       })
       .catch(err => {
         console.log(err);
