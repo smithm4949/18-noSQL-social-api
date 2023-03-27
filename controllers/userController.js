@@ -45,5 +45,33 @@ module.exports = {
         console.log(err);
         return res.status(500).json(err);
       });
+  },
+  addFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.params.friendId } },
+      { runValidators: true, new: true }
+    )
+      .then(user => {
+        user ? res.json(user) : res.status(404).json({message: 'user not found'})
+      })
+      .catch(err => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
+  },
+  removeFriend(req, res) {
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendId } },
+      { runValidators: true, new: true }
+    )
+      .then(user => {
+        user ? res.json(user) : res.status(404).json({message: 'user not found'})
+      })
+      .catch(err => {
+        console.log(err);
+        return res.status(500).json(err);
+      });
   }
 }
