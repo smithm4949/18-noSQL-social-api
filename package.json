@@ -1,0 +1,11 @@
+{
+  "name": "18-nosql-social-network-api",
+  "version": "1.0.0",
+  "description": "Social Networking API for homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Myles Smith",
+  "license": "ISC"
+}
