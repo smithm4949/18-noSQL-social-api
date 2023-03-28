@@ -31,7 +31,7 @@ module.exports = {
       .then(user => {
         if (user) {
           Thought.deleteMany({ _id: { $in: user.thoughts } })
-          .then(() => console.log('deletemany fired'));
+          .then(() => console.log('delete many fired'));
           res.json(user);
         } else {
           res.status(404).json({message: 'user not found'})
