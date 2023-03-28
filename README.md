@@ -6,7 +6,7 @@ This weeks challenge is to create an API for a social network application which 
 
 ## Installation and Deployment
 
-This application is not deployed. A demo showing functionality can be [viewed here](https://warm-taiga-81787.herokuapp.com/).
+This application is not deployed. A demo showing functionality can be [viewed here](https://watch.screencastify.com/v/AjDdMhbvxMiQ80qY5bJH).
 
 ## Authors and acknowledgment
 
