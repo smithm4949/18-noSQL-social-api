@@ -27,7 +27,7 @@ module.exports = {
       .then(thought => {
         User.findOneAndUpdate(
           { _id: req.body.userId },
-          { $addToSet: {thougts: ObjectId(thought.id)} }
+          { $addToSet: {thoughts: ObjectId(thought.id)} }
         )
           .then(user => console.log(user))
           .catch(err => console.log(err))
