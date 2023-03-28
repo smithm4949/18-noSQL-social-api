@@ -10,7 +10,9 @@ This application is not deployed. A demo showing functionality can be [viewed he
 
 ## Authors and acknowledgment
 
-This homework assignment was completed and developed by Myles Smith.
+This homework assignment was completed and developed by Myles Smith. In addition to class materials, [mongoose documentation](https://mongoosejs.com/docs/6.x/) was referenced.
+
+The regex used for validating email addresses in models/User.js was provided by [regexr.com](https://regexr.com/3e48o).
 
 ## Project status
 
